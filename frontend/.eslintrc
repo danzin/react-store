@@ -1,0 +1,61 @@
+/** 
+  WORKING CONFIGURATION FOR ESLINT
+  ENVIRONMENT IS SET TO ES2020 
+  SUPPORTS IMPORT MODULES
+  EVERYTHING WORKS THE WAY IT'S SUPPOSED TO
+  DO NOT EDIT WITHOUT COMMENTS
+  DO NOT DELETE 
+**/
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2020": true,
+    "node": true
+  },
+  "extends": [
+    // "react-app",  // will cause cannot find eslint error
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "js": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "default-case": "error",
+    "eqeqeq": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-case-declarations": "off",
+    "no-empty-function": "warn",
+    "no-extra-bind": "warn",
+    "max-depth": "warn",
+    "max-len": "off",
+    "no-multiple-empty-lines": "warn",
+    "no-trailing-spaces": [
+      "warn",
+      {
+        "ignoreComments": true,
+        "skipBlankLines": true
+      }
+    ],
+    "react/no-access-state-in-setstate": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
