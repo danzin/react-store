@@ -6,7 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+:root {
+  --bar-width: 40px;
+  --bar-height: 6px;
+  --hamburger-gap: 6px;
+  --foreground: #ede0e0;
+  --background: white;
+}
 .site-container {
   min-height: 100vh;
 }
@@ -73,14 +79,14 @@ main {
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #100901;
+  background-color: #000621;
   transition: 0.5s;
 }
 
 .site-container {
   transition: 0.4s;
 }
-.active-cont {
+.active-container {
   margin-left: 240px;
 }
 .active-nav {
@@ -88,6 +94,25 @@ main {
 }
 .text-bold {
   font-weight: bold;
+}
+
+/* Hamburger menu */
+
+.hmb-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+}
+
+.hmb-menu::before,
+.hmb-menu::after,
+.hmb-menu span {
+  content: '';
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 6px;
 }
 
 /* Map */

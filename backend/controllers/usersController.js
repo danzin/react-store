@@ -49,7 +49,7 @@ const signUpUser = async (req, res) => {
     passwordHash: bcrypt.hashSync(password),
   });
   res.send({
-    _id: user._id,
+    id: user._id,
     name: user.name,
     email: user.email,
     isAdmin: user.isAdmin,
@@ -57,9 +57,35 @@ const signUpUser = async (req, res) => {
   });
 };
 
+const updateUser = async (req, res) => {
+  const user = await User.findById(req.user.id);
+  if (user) {
+    console.log(req.body.name);
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    if (req.body.password) {
+      user.password = bcrypt.hash(req.body.password, 8);
+    }
+
+    const updatedUser = await user.save();
+
+    res.send({
+      id: user._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: generateToken(updatedUser),
+    });
+  } else {
+    res.status(404).send({ message: "User not found" });
+  }
+};
+
 module.exports = {
   getAll,
   signInUser,
   signUpUser,
   getSingleById,
+  updateUser,
 };

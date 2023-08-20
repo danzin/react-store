@@ -5,7 +5,7 @@ const config = require("./utils/config");
 const productsRouter = require("./routes/productsRouter.js");
 const seedRouter = require("./routes/seedRoutes.js");
 const userRouter = require("./routes/userRouter.js");
-const orderRouter = require("./routes/orderRoute");
+const orderRouter = require("./routes/orderRouter");
 const cors = require("cors");
 
 app.use(function (req, res, next) {
